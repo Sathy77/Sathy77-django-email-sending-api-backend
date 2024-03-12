@@ -25,9 +25,7 @@ def addcontactus(request):
         contactusserializer.save()
 
         subject = 'Mail From Api Solutions ltd.'
-        recipient_list = ['sathy754@gmail.com']
-        # recipient_list = ['nazmulhussain.api@gmail.com','mustafatanim59@gmail.com','apitestingofficial@gmail.com']
-        # recipient_list = ['apitestingofficial@gmail.com']
+        recipient_list = ['hello@apisolutionsltd.com']
 
         context = ghelp().getcontextcontactus(companyName, name, corporateEmail, phone, comments, protectDataByNDA)
         html_message = render_to_string('ContactUs.html', context=context)

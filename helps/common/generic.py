@@ -44,6 +44,18 @@ class Generichelps:
         else: flag = True
         return flag
     
+    # faw
+    # def emailvalidate(self, email, condition=True):
+    #     flag = False
+    #     if condition:
+    #         try:
+    #             v = validate_email(email)
+    #             email = v["email"]
+    #             flag = True
+    #         except EmailNotValidError as e: flag = False
+    #     else: flag = True
+    #     return flag
+        
     def attachmentvalidate(self, attachmentname, condition=True):
         flag = False
         if condition:

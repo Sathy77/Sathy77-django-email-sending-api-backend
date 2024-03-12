@@ -24,7 +24,6 @@ def addrequestschedule(request):
         name = userDetails.get('name', '')
         phone = userDetails.get('phone', '')
 
-        # if not ghelp().datevalidate(date):
         if not ghelp().checkvaliddate(date):
             errors.append({'field': 'date','message': rspn['field_err_msg']['date']})
         if not ghelp().datevalitime(time, condition=False):
@@ -38,9 +37,7 @@ def addrequestschedule(request):
         requestschedule = Requestschedule.objects.create(service=service, date=date, time=time, budget=budget, description=description, userDetails=userdetails)
 
         subject = 'Mail From Api Solutions ltd.'
-        # recipient_list = ['naymhsain00@gmail.com','mustafatanim59@gmail.com','sathy754@gmail.com']
-        recipient_list = ['nazmulhussain.api@gmail.com','mustafatanim59@gmail.com','apitestingofficial@gmail.com']
-        # recipient_list = ['apitestingofficial@gmail.com']
+        recipient_list = ['hello@apisolutionsltd.com']
 
         context = ghelp().getcontextrequestschedule(service, date, time, budget, description, name, phone)
         

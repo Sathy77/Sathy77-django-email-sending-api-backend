@@ -49,7 +49,6 @@ def addestimateproject(request):
             estimateproject = Estimateproject.objects.create(
                 projectType=projectType, 
                 yourRole=yourRole, 
-                # servicesNeeded=servicesNeeded,
                 preferredContactTime = preferredContactTime,
                 attachment = attachment,
                 attachmentname = attachmentname,
@@ -61,7 +60,6 @@ def addestimateproject(request):
             estimateproject = Estimateproject.objects.create(
                 projectType=projectType, 
                 yourRole=yourRole, 
-                # servicesNeeded=servicesNeeded,
                 preferredContactTime = preferredContactTime,
                 projectDetails = projectDetails,
                 userDetails = userdetails,
@@ -77,10 +75,8 @@ def addestimateproject(request):
             Timeframe.objects.create(fieldName=key, value=timeframe[key], estimateProject=estimateproject)
 
         subject = 'Mail From Api Solutions ltd.'
-        # recipient_list = ['nazmulhussain.api@gmail.com','mustafatanim59@gmail.com','apitestingofficial@gmail.com']
-        recipient_list = ['apitestingofficial@gmail.com']
+        recipient_list = ['hello@apisolutionsltd.com']
         attachments = [f'media/{estimateproject.attachment}'] if attachment else []
-        # context = ghelp().getcontextestimateproject(challenges, alreadyHave, timeframe, projectType, yourRole, servicesNeeded, preferredContactTime, projectDetails, newsletterSubscription, name, email, phone)
         context = ghelp().getcontextestimateproject(challenges, alreadyHave, timeframe, projectType, yourRole, preferredContactTime, projectDetails, newsletterSubscription, name, email, phone)
         html_message = render_to_string('EstimateProjectRequestDetails.html', context=context)
         ghelp().send_mail_formatting_including_attatchment(html_message, subject, recipient_list, attachments)
