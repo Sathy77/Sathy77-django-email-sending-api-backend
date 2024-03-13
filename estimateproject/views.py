@@ -18,7 +18,6 @@ def addestimateproject(request):
     timeframe = json.loads(request.data.get('timeframe', str({})).replace("'", "\""))
     projectType = ghelp().removedoublequotation(request.data.get('projectType', ''))
     yourRole = ghelp().removedoublequotation(request.data.get('yourRole', ''))
-    # servicesNeeded = request.data.get('servicesNeeded', '')
     preferredContactTime = ghelp().removedoublequotation(request.data.get('preferredContactTime', ''))
     attachment = request.FILES.get('attachment')
     attachmentname = '' if attachment == None else str(attachment)
@@ -74,7 +73,7 @@ def addestimateproject(request):
         for key in timeframe.keys():
             Timeframe.objects.create(fieldName=key, value=timeframe[key], estimateProject=estimateproject)
 
-        subject = 'Mail From Api Solutions ltd.'
+        subject = 'Estimate Project (Mail From Api Solutions ltd).'
         recipient_list = ['hello@apisolutionsltd.com']
         attachments = [f'media/{estimateproject.attachment}'] if attachment else []
         context = ghelp().getcontextestimateproject(challenges, alreadyHave, timeframe, projectType, yourRole, preferredContactTime, projectDetails, newsletterSubscription, name, email, phone)

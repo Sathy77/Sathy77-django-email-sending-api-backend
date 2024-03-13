@@ -24,7 +24,7 @@ def addcontactus(request):
     if contactusserializer.is_valid(raise_exception=True): 
         contactusserializer.save()
 
-        subject = 'Mail From Api Solutions ltd.'
+        subject = 'Contact Us (Mail From Api Solutions ltd).'
         recipient_list = ['hello@apisolutionsltd.com']
 
         context = ghelp().getcontextcontactus(companyName, name, corporateEmail, phone, comments, protectDataByNDA)
