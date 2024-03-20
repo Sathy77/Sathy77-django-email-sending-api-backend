@@ -36,8 +36,9 @@ def addrequestschedule(request):
         userdetails = Userdetails.objects.create(name=name, phone=phone)
         requestschedule = Requestschedule.objects.create(service=service, date=date, time=time, budget=budget, description=description, userDetails=userdetails)
 
-        subject = 'REquest Schedule (Mail From Api Solutions ltd).'
-        recipient_list = ['hello@apisolutionsltd.com']
+        subject = 'Request Schedule (Mail From Api Solutions ltd).'
+        # recipient_list = ['hello@apisolutionsltd.com']
+        recipient_list = ['sathy754@gmail.com','gm@nazmulhussain.com','nazmulhussain.api@gmail.com']
 
         context = ghelp().getcontextrequestschedule(service, date, time, budget, description, name, phone)
         

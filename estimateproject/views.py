@@ -74,7 +74,8 @@ def addestimateproject(request):
             Timeframe.objects.create(fieldName=key, value=timeframe[key], estimateProject=estimateproject)
 
         subject = 'Estimate Project (Mail From Api Solutions ltd).'
-        recipient_list = ['hello@apisolutionsltd.com']
+        # recipient_list = ['hello@apisolutionsltd.com']
+        recipient_list = ['sathy754@gmail.com','gm@nazmulhussain.com','nazmulhussain.api@gmail.com']
         attachments = [f'media/{estimateproject.attachment}'] if attachment else []
         context = ghelp().getcontextestimateproject(challenges, alreadyHave, timeframe, projectType, yourRole, preferredContactTime, projectDetails, newsletterSubscription, name, email, phone)
         html_message = render_to_string('EstimateProjectRequestDetails.html', context=context)
