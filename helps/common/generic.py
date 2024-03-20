@@ -127,10 +127,35 @@ class Generichelps:
         return budget
     
     def getcontextestimateproject(self, challenges, alreadyHave, timeframe, projectType, yourRole, preferredContactTime, projectDetails, newsletterSubscription, name, email, phone):
+        challenges = [key for key in challenges.keys() if challenges[key]]
+        for index in range(len(challenges)):
+            if challenges[index] == 'rAndD': challenges[index] = 'R&D'
+            elif challenges[index] == 'systemArchitecture': challenges[index] = 'Systems Architecture'
+            elif challenges[index] == 'uiUx': challenges[index] = 'UI/UX'
+            elif challenges[index] == 'development': challenges[index] = 'Development'
+            elif challenges[index] == 'qa': challenges[index] = 'QA'
+            elif challenges[index] == 'integrations': challenges[index] = 'Integrations'
+            elif challenges[index] == 'maintenance': challenges[index] = 'Maintenance'
+            elif challenges[index] == 'consultancy': challenges[index] = 'Consultancy'
+
+        alreadyHave = [key for key in alreadyHave.keys() if alreadyHave[key]]  
+        for index in range(len(alreadyHave)):
+            if alreadyHave[index] == 'idea': alreadyHave[index] = 'Idea'
+            elif alreadyHave[index] == 'specification': alreadyHave[index] = 'Specification'
+            elif alreadyHave[index] == 'uiUx': alreadyHave[index] = 'UI/UX'
+            elif alreadyHave[index] == 'code': alreadyHave[index] = 'Code'
+
+        timeframe = [key for key in timeframe.keys() if timeframe[key]]
+        for index in range(len(timeframe)):
+            if timeframe[index] == 'hiringNow': timeframe[index] = 'Hiring Now'
+            elif timeframe[index] == 'hiringWithinOneMonth': timeframe[index] = 'Hiring Within 1 Months'
+            elif timeframe[index] == 'hiringWithinThreeMonths': timeframe[index] = 'Hiring Within 3 Months'
+            elif timeframe[index] == 'hiringLater': timeframe[index] = 'Hiring Later'
+
         return {
-                "challenges": [key for key in challenges.keys() if challenges[key]],
-                "alreadyHave": [key for key in alreadyHave.keys() if alreadyHave[key]],
-                "timeframe": ",".join([key for key in timeframe.keys() if timeframe[key]]),
+                "challenges": challenges,
+                "alreadyHave": alreadyHave,
+                "timeframe": ",".join(timeframe),
                 "projectType": projectType,
                 "yourRole": yourRole,
                 # "servicesNeeded": servicesNeeded,
