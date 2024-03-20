@@ -38,7 +38,8 @@ def addrequestschedule(request):
 
         subject = 'Request Schedule (Mail From Api Solutions ltd).'
         # recipient_list = ['hello@apisolutionsltd.com']
-        recipient_list = ['sathy754@gmail.com','gm@nazmulhussain.com','nazmulhussain.api@gmail.com']
+        # recipient_list = ['sathy754@gmail.com','gm@nazmulhussain.com','nazmulhussain.api@gmail.com']
+        recipient_list = ['hello@apisolutionsltd.com','r.rashedzahan']
 
         context = ghelp().getcontextrequestschedule(service, date, time, budget, description, name, phone)
         

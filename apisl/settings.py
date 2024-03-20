@@ -65,12 +65,24 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
+# CORS_ALLOWED_ORIGINS = [
+#     "http://10.10.23.89:3000",
+#     "http://localhost:8080",
+#     "http://127.0.0.1:8080",
+
+# ]
+
+#Prince Vhai Start
 CORS_ALLOWED_ORIGINS = [
     "http://10.10.23.89:3000",
     "http://localhost:8080",
+    "https://apisolutionsltd.com",
+    "https://send-mail.apisolutionsltd.com",
     "http://127.0.0.1:8080",
+    "https://113.212.109.147",
 
 ]
+#end
 
 ROOT_URLCONF = 'apisl.urls'
 
